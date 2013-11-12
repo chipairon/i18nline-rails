@@ -10,5 +10,6 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
+  gem 'i18n-active_record', :github => 'pawelnguyen/i18n-active_record', branch: 'rails-4'
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'
