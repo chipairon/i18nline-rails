@@ -4,6 +4,18 @@ module I18nline
   class TranslationsController < ApplicationController
     before_action :set_translation, only: [:show, :edit, :update, :destroy]
 
+    def find_by_key
+      begin
+        tokens = params[:key].split(".")
+        locale = tokens.delete_at(0)
+        key = tokens.join(".")
+        @translations = Translation.where("key = ?", key)
+        render "index" and return
+      rescue
+        redirect_to :root and return
+      end
+    end
+
     # GET /translations
     def index
       @translations = Translation.all
