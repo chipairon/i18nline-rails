@@ -6,13 +6,20 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @translations.each do |translation| %>
       <tr>
-        <td><%= link_to 'Show', translation %></td>
+        <td><%= translation.locale %></td>
+        <td><%= translation.key %></td>
+        <td><%= translation.value %></td>
+        <td><%= translation.created_at %></td>
         <td><%= link_to 'Edit', edit_translation_path(translation) %></td>
         <td><%= link_to 'Destroy', translation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
