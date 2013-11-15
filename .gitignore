@@ -1,3 +1,4 @@
+*~
 *.rbc
 *.sassc
 .sass-cache
@@ -8,7 +9,7 @@ capybara-*.html
 /vendor/bundle
 /log/*
 /tmp/*
-/db/*.sqlite3
+*.sqlite3
 /public/system/*
 /coverage/
 /spec/tmp/*
@@ -17,3 +18,6 @@ rerun.txt
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb
+
+/test/dummy/log/*
+/test/dummy/tmp/*
