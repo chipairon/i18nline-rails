@@ -13,6 +13,15 @@ Translation management engine for Rails applications.
 4. Run migration to create the translation table: `$ rake db:migrate`
 5. Fill the required fields in `config/initializers/i18nline.rb`
 6. Add a reference to i18nline assets to your application layout file: `<%= i18nline_assets_inclusion_tag %>`
+7. Mount the engine adding this line to your routes.rb file: `mount I18nline::Engine => "/i18nline"`
+8. Restart the server
+
+If everything is right, users who can translate as specified in the initilizer file will
+see red inline marks on missing translations on views. 
+
+Right clicking an inline mark will open a translation management view for that specific key.
+
+A translation dashboard will be available to translators at `/i18nline`.
 
 ## Configuration
 You need to provide some configuration options so i18nline can work. They configuration file is located at `your_app_root/config/initializers/i18nline.rb`.
