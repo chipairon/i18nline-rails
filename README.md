@@ -17,6 +17,10 @@ Translation management engine for Rails applications.
 ## Configuration
 You need to provide some configuration options so i18nline can work. They configuration file is located at `your_app_root/config/initializers/i18nline.rb`.
 
+## Advanced topics
+Fallbacks are already done by I18n, but show how to use them here.
+Cache abilitation already done by i18n, but show how to set it here.
+
 ## How to contribute
 
 * Make your best effort to follow this guidelines:
