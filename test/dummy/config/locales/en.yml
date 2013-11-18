@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  this:
+    yaml:
+      tell_me: "I am telling you!"
+  interpolate:
+    from:
+      yml: "Mi favorite fruit is %{fruit}."

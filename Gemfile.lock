@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Chipairon/i18n-active_record.git
-  revision: f247ae76b17cc6f00ff31c4cd64466c038859fe0
+  revision: 6defccfde601411d35e3679682bdc9c5fde18aa3
   branch: latest_stable
   specs:
     i18n-active_record (0.0.2)
