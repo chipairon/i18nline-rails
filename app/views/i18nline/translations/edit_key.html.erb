@@ -1,0 +1,55 @@
+<h1>Editing translation</h1>
+
+<div id="edit_key_set" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Key: <%= @tr_set.key %></h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for(@tr_set, as: :tr_set, url: update_key_set_path, method: :put, html: { class: 'form-horizontal', role: 'form' }) do |f| %>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Interpolations</label>
+        <div class="col-sm-10">
+          <%= f.text_field :interpolations, class: "form-control", disabled: :disabled %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <%= f.check_box :is_proc %>
+              Is a proc?
+            </label>
+          </div>
+        </div>
+      </div>
+      <% @tr_set.translations.each do |translation| %>
+        <% panel_color = translation.value.nil? ? "panel-danger" : "panel-info" %>
+        <div class="panel panel-default <%= panel_color %>">
+          <div class="panel-body">
+            <%= f.fields_for "translation[]", translation do |tl_form| %>
+              <div class="input-group col-sm-offset-2">
+                <span class="input-group-addon"><%= translation.locale %></span>
+                <%= tl_form.text_area :value, class: "form-control" %>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label>
+                      <%= tl_form.check_box :make_nil %>
+                      Make nil to cause missing_translation?
+                    </label>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back to main list', translations_path %>
