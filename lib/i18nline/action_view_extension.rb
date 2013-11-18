@@ -2,21 +2,39 @@ module I18nline
   module ActionViewExtension
     extend ActiveSupport::Concern
 
+    included do
+      def current_user_can_translate?
+        current_user = send I18nline.current_user_method
+        if current_user
+          if current_user.try I18nline.can_translate_method
+            I18nline.current_user = current_user
+            return true
+          end
+        end
+        false
+      end
+    end
+
     def i18nline_assets_inclusion_tag
-      assets = ""
-      assets << i18nline_host_styles << "\n"
-      assets << i18nline_host_javascripts << "\n"
-      assets.html_safe
+      if current_user_can_translate?
+        assets = ""
+        assets << i18nline_host_styles << "\n"
+        assets << i18nline_host_javascripts << "\n"
+        assets.html_safe
+      end
     end
 
-    # Javascripts that will be loaded on host application:
-    def i18nline_host_javascripts
-      javascript_include_tag("i18nline_to_host.js")
-    end
+    private
 
-    # Css that will be loaded on host application:
-    def i18nline_host_styles
-      stylesheet_link_tag("i18nline_to_host.css")
-    end
+      # Javascripts that will be loaded on host application:
+      def i18nline_host_javascripts
+        javascript_include_tag("i18nline_to_host.js")
+      end
+
+      # Css that will be loaded on host application:
+      def i18nline_host_styles
+        stylesheet_link_tag("i18nline_to_host.css")
+      end
+
   end
 end
