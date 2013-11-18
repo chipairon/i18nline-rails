@@ -10,7 +10,7 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-  gem 'i18n-active_record', :github => 'pawelnguyen/i18n-active_record', branch: 'rails-4'
+  gem 'i18n-active_record', :github => 'Chipairon/i18n-active_record', branch: 'latest_stable'
 # To use debugger
  gem 'debugger'
  gem 'jquery-rails'

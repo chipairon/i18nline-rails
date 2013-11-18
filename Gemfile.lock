@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/pawelnguyen/i18n-active_record.git
-  revision: 6d5c10b09bc8d016b82ec735110e0982d985fd9a
-  branch: rails-4
+  remote: git://github.com/Chipairon/i18n-active_record.git
+  revision: f247ae76b17cc6f00ff31c4cd64466c038859fe0
+  branch: latest_stable
   specs:
     i18n-active_record (0.0.2)
       i18n (>= 0.5.0)
