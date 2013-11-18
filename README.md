@@ -7,7 +7,7 @@ Translation management engine for Rails applications.
 
 ## Installation
 
-1. Add i18nline to your Gemfile: `$ gem 'i18nline'`
+1. Add i18nline to your Gemfile: `$ gem 'i18nline-rails'`
 2. Run bundle: `$ bundle`
 3. Copy initialization files: `$ rails generate i18nline:install`
 4. Run migration to create the translation table: `$ rake db:migrate`
