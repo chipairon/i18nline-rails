@@ -28,6 +28,7 @@ You need to provide some configuration options so i18nline can work. They config
 
 ## Advanced topics
 Fallbacks are already done by I18n, but show how to use them here.
+
 Cache abilitation already done by i18n, but show how to set it here.
 
 ## How to contribute
