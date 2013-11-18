@@ -36,7 +36,7 @@ module I18nline
 
     # GET /translations
     def index
-      @translations = Translation.all
+      @translations = Translation.order("created_at desc").page(params[:page]).per(25)
     end
 
     # GET /translations/1/edit
