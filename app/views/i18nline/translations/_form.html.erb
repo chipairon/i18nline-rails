@@ -25,6 +25,9 @@
       <%= f.text_field :value %>
     </div>
     <div class="field">
+      <%= f.check_box :make_nil %><label for="translation_make_nil">Make nil to cause missing_translation?</label>
+    </div>
+    <div class="field">
       <label>Interpolations</label>
       <%= f.text_field :interpolations %>
     </div>

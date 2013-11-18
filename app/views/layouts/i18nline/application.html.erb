@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>I18nline</title>
-  <%= stylesheet_link_tag    "i18nline/application", media: "all" %>
-  <%= javascript_include_tag "i18nline/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>I18nline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    "i18nline/application", media: "all" %>
+    <%= javascript_include_tag "i18nline/application" %>
+    <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/bootswatch/3.0.1/readable/bootstrap.min.css", media: "all" %>
+    <%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" %>
+    <%= javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>

@@ -1,10 +1,8 @@
 <h1>Listing translations</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,13 +13,13 @@
 
   <tbody>
     <% @translations.each do |translation| %>
-      <tr>
+      <% tr_color = translation.value.nil? ? "danger" : "" %>
+      <tr class="<%= tr_color %>">
         <td><%= translation.locale %></td>
         <td><%= translation.key %></td>
         <td><%= translation.value %></td>
         <td><%= translation.created_at %></td>
-        <td><%= link_to 'Edit', edit_translation_path(translation) %></td>
-        <td><%= link_to 'Destroy', translation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_translation_path(translation), class: "btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
