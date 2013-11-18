@@ -23,6 +23,23 @@ Right clicking an inline mark will open a translation management view for that s
 
 A translation dashboard will be available to translators at `/i18nline`.
 
+#### Note on locale tracking
+Your application should keep track of the locale that is asked by the user.
+A basic implementation of this in you application controller could look like this:
+```
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale] || session[:locale] || locale_from_browser || default_language
+    if I18n.locale.to_s != session[:locale].to_s
+      logger.debug "Locale changed from -#{session[:locale].to_s}- to -#{I18n.locale.to_s}-."
+    end
+    session[:locale] = I18n.locale.to_s
+  end
+```
+
+You can learn more about it here: http://guides.rubyonrails.org/i18n.html#setting-and-passing-the-locale
+
 ## Configuration
 You need to provide some configuration options so i18nline can work. They configuration file is located at `your_app_root/config/initializers/i18nline.rb`.
 
