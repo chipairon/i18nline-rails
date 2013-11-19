@@ -9,12 +9,13 @@ Translation management engine for Rails applications.
 
 1. Add i18nline to your Gemfile: `$ gem 'i18nline-rails'`
 2. Run bundle: `$ bundle`
-3. Copy initialization files: `$ rails generate i18nline:install`
-4. Run migration to create the translation table: `$ rake db:migrate`
-5. Fill the required fields in `config/initializers/i18nline.rb`
-6. Add a reference to i18nline assets to your application layout file: `<%= i18nline_assets_inclusion_tag %>`
-7. Mount the engine adding this line to your routes.rb file: `mount I18nline::Engine => "/i18nline"`
-8. Restart the server
+3. Copy pending migrations: `$ rake i18nline:install:migrations`
+4. Copy initialization files: `$ rails generate i18nline:install`
+5. Run migrations: `$ rake db:migrate`
+6. Fill the required fields in `config/initializers/i18nline.rb`
+7. Add a reference to i18nline assets to your application layout file: `<%= i18nline_assets_inclusion_tag %>`
+8. Mount the engine adding this line to your routes.rb file: `mount I18nline::Engine => "/i18nline"`
+9. Restart the server
 
 If everything is right, users who can translate as specified in the initilizer file will
 see red inline marks on missing translations on views. 
