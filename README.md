@@ -36,6 +36,12 @@ A basic implementation of this in you application controller could look like thi
     end
     session[:locale] = I18n.locale.to_s
   end
+  
+  private
+    def locale_from_browser
+      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    end
+
 ```
 
 You can learn more about it here: http://guides.rubyonrails.org/i18n.html#setting-and-passing-the-locale
