@@ -10,16 +10,22 @@ module I18nline
     end
   end
 end
-TRANSLATION_STORE = I18nline::MyBackend.new
-I18n.backend = I18n::Backend::Chain.new(TRANSLATION_STORE, I18n::Backend::Simple.new)
-module I18n
-  class JustRaiseExceptionHandler < ExceptionHandler
-    def call(exception, locale, key, options)
-      if exception.is_a?(MissingTranslation)
-        TRANSLATION_STORE.store_default_translations(locale, key, options)
+
+# This check is needed to make possible to install migrations with
+# rake when there are other gems using I18n at setup before the
+# table is created.
+if ActiveRecord::Base.connection.table_exists? 'i18nline_translations'
+  TRANSLATION_STORE = I18nline::MyBackend.new
+  I18n.backend = I18n::Backend::Chain.new(TRANSLATION_STORE, I18n::Backend::Simple.new)
+  module I18n
+    class JustRaiseExceptionHandler < ExceptionHandler
+      def call(exception, locale, key, options)
+        if exception.is_a?(MissingTranslation)
+          TRANSLATION_STORE.store_default_translations(locale, key, options)
+        end
+        super
       end
-      super
     end
   end
+  I18n.exception_handler = I18n::JustRaiseExceptionHandler.new
 end
-I18n.exception_handler = I18n::JustRaiseExceptionHandler.new

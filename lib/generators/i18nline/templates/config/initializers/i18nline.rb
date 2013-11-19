@@ -14,7 +14,7 @@ I18nline.setup do |config|
   # A route available in your application to redirect the user to login
   # when he tries to access to protected views. This route should be
   # available on your 'rake routes'.
-  #config.login_route = "\login_url"
+  #config.login_route = "/login_url"
 
   # Missing translations will be generated for this locales.
   #config.enabled_locales = %w(en es it)

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    i18nline (0.0.3.alpha)
+    i18nline (0.0.5.alpha)
       chipairon-i18n-active_record
       jquery-rails
       kaminari (~> 0.14)
