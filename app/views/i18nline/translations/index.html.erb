@@ -1,5 +1,7 @@
 <h1>Listing translations</h1>
 
+<%= render "search_form" %>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -25,6 +27,5 @@
   </tbody>
 </table>
 
-<br>
+<%= paginate @translations %>
 
-<%= link_to 'New Translation', new_translation_path %>

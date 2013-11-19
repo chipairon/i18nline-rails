@@ -36,7 +36,12 @@ module I18nline
 
     # GET /translations
     def index
-      @translations = Translation.all
+      q = Translation.search_key(params[:search_key])
+        .search_value(params[:search_value])
+        .in_locale(params[:search_locale])
+        .not_translated(params[:search_not_translated])
+        .blank_value(params[:search_blank_value])
+      @translations = q.page(params[:page]).per(25)
     end
 
     # GET /translations/1/edit
