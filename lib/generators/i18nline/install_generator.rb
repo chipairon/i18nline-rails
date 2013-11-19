@@ -7,6 +7,10 @@ module I18nline
       def copy_config
         template "config/initializers/i18nline.rb"
       end
+
+      def create_migrations
+        migration_template 'migrations/create_i18nline_translations.rb', 'db/migrate/create_i18nline_translations.rb'
+      end
     end
   end
 end

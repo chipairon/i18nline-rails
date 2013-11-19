@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = I18nline::VERSION
   s.authors     = ["Rubén Díaz-Jorge Gil"]
   s.email       = ["rubendiazjorge@gmail.com"]
-  s.homepage    = "https://github.com/Chipairon"
-  s.summary     = "Inline translations"
-  s.description = "Inline translations for I18n using fast-gettext as a translations backend."
+  s.homepage    = "http://github.com/elpulgardelpanda/i18nline"
+  s.summary     = "Translation management engine for Rails applications"
+  s.description = "Translation management engine for Rails applications"
   s.license = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    i18nline (0.0.1.alpha)
+    i18nline (0.0.3.alpha)
       jquery-rails
       kaminari (~> 0.14)
       rails (~> 4.0.0)
