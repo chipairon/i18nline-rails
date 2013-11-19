@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/Chipairon"
   s.summary     = "Inline translations"
   s.description = "Inline translations for I18n using fast-gettext as a translations backend."
+  s.license = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
