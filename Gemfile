@@ -11,7 +11,5 @@ gemspec
 # your gem to rubygems.org.
 
   gem 'i18n-active_record', :github => 'Chipairon/i18n-active_record', branch: 'latest_stable'
-  # To use debugger
-  #gem 'debugger'
   gem 'jquery-rails'
-  gem 'kaminari', '~> 0.14'
+  gem 'kaminari'

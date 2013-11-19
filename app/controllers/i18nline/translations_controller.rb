@@ -44,10 +44,6 @@ module I18nline
       @translations = q.page(params[:page]).per(25)
     end
 
-    # GET /translations/1/edit
-    def edit
-    end
-
     def update_key_set
       unless params[:tr_set]
         redirect_to :root, error: "Something went wrong. No translations found." and return
@@ -59,7 +55,11 @@ module I18nline
           db_translation.value = translation.last[:value]
           db_translation.is_proc = is_proc
           if translation.last[:make_nil].presence == "1"
-            db_translation.value = nil
+            # it is likely that if value was nil and now is not, 'make_nil' has been left marked
+            # as a mistake, so in that case we ignore it and apply the new value:
+            unless db_translation.value_changed? and db_translation.value_was.nil?
+              db_translation.value = nil
+            end
           end
           if db_translation.changed?
             db_translation.save

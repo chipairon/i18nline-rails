@@ -1,27 +1,26 @@
-<%= form_tag translations_path, :method => 'get' do %>
-  <p>
-    <label> key:</label>
-    <%= text_field_tag :search_key, params[:search_key] %>
-  </p>
-  <p>
-    <label> value:</label>
-    <%= text_field_tag :search_value, params[:search_value] %>
-  </p>
-  <p>
-    <label> locale:</label>
-    <%= select_tag :search_locale, options_for_select(I18nline::enabled_locales, params[:search_locale]), include_blank: true %>
-  </p>
-  <p>
+<%= form_tag translations_path, :method => 'get', class: "form-inline", role: "form" do %>
+  <div class="form-group">
+    <label class="sr-only" for="search_key"> key:</label>
+    <%= text_field_tag :search_key, params[:search_key], class: "form-control", placeholder: "Search key" %>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="search_value"> value:</label>
+    <%= text_field_tag :search_value, params[:search_value], class: "form-control", placeholder: "Search value" %>
+  </div>
+  <div class="form-group">
+    <%= select_tag :search_locale, options_for_select(I18nline::enabled_locales, params[:search_locale]), class: "form-control", prompt: "all locales" %>
+  </div>
+  <div class="checkbox">
     <label>
       <%= check_box_tag :search_not_translated, "1", params[:search_not_translated] == "1" %>
       Not translated
     </label>
-  </p>
-  <p>
+  </div>
+  <div class="checkbox">
     <label>
       <%= check_box_tag :search_blank_value, "1", params[:search_blank_value] == "1" %>
       Has blank value
     </label>
-  </p>
-  <%= submit_tag "Search", :name => nil %>
+  </div>
+  <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
 <% end %>

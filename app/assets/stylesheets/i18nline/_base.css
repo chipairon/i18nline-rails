@@ -2,3 +2,14 @@
   background-color: #EED3D7;
 }
 
+body {
+  font-size: 14px !important;
+}
+.form-control {
+  font-size: 14px !important;
+  height: 36px !important;
+}
+.btn {
+  padding: 6px 10px !important;
+  font-size: 14px !important;
+}
