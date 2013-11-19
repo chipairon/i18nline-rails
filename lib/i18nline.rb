@@ -1,5 +1,6 @@
 require "i18nline/engine"
 require 'i18nline/railtie' if defined?(Rails)
+require 'kaminari'
 
 module I18nline
 

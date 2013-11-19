@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require 'jquery-rails'
+require 'kaminari'
 
 Bundler.require(*Rails.groups)
 require "i18nline"
