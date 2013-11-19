@@ -1,3 +1,3 @@
 module I18nline
-  VERSION = "0.0.3.alpha"
+  VERSION = "0.0.4.alpha"
 end

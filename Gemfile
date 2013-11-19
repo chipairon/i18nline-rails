@@ -10,6 +10,4 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-  gem 'i18n-active_record', :github => 'Chipairon/i18n-active_record', branch: 'latest_stable'
-  gem 'jquery-rails'
-  gem 'kaminari'
+  #gem 'i18n-active_record', :github => 'Chipairon/i18n-active_record', branch: 'latest_stable'

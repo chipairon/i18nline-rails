@@ -1,15 +1,8 @@
-GIT
-  remote: git://github.com/Chipairon/i18n-active_record.git
-  revision: 6defccfde601411d35e3679682bdc9c5fde18aa3
-  branch: latest_stable
-  specs:
-    i18n-active_record (0.0.2)
-      i18n (>= 0.5.0)
-
 PATH
   remote: .
   specs:
     i18nline (0.0.3.alpha)
+      chipairon-i18n-active_record
       jquery-rails
       kaminari (~> 0.14)
       rails (~> 4.0.0)
@@ -47,6 +40,8 @@ GEM
     byebug (2.3.1)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
+    chipairon-i18n-active_record (0.0.2)
+      i18n (>= 0.5.0)
     columnize (0.3.6)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
@@ -106,8 +101,5 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  i18n-active_record!
   i18nline!
-  jquery-rails
-  kaminari
   sqlite3
