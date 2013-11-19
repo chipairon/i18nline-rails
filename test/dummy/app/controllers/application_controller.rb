@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= OpenStruct.new(name: "John Smith", can_translate?: true)
   end
   helper_method :current_user
+
+  private
+    def locale_from_browser
+      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+    end
 end
