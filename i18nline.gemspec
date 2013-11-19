@@ -5,7 +5,7 @@ require "i18nline/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "i18nline-rails"
+  s.name        = "i18nline"
   s.version     = I18nline::VERSION
   s.authors     = ["Rubén Díaz-Jorge Gil"]
   s.email       = ["rubendiazjorge@gmail.com"]
