@@ -9,3 +9,5 @@
 <p>This should be <%= t("translated")%></p>
 
 <p>This is not translated <%=t("not.translated.key.with.dots")%></p>
+
+<p>Time now is <%= l(Time.now, format: :long) %></p>

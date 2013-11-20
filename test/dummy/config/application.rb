@@ -6,6 +6,7 @@ require 'kaminari'
 
 Bundler.require(*Rails.groups)
 require "i18nline"
+require 'rails-i18n'
 
 module Dummy
   class Application < Rails::Application
