@@ -4,10 +4,9 @@ module I18nline
 
     included do
       def current_user_can_translate?
-        current_user = send I18nline.current_user_method
-        if current_user
-          if current_user.try I18nline.can_translate_method
-            I18nline.current_user = current_user
+        I18nline.current_user ||= send I18nline.current_user_method
+        if I18nline.current_user
+          if I18nline.current_user.try I18nline.can_translate_method
             return true
           end
         end

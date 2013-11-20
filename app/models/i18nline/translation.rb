@@ -11,7 +11,7 @@ module I18nline
       if apply_this.present?
         where("value is null")
       else
-        scoped
+        self.all
       end
     end
 
@@ -20,7 +20,7 @@ module I18nline
         #value is serialized so searching for empty is complicated:
         where("value like ?", "".to_yaml)
       else
-        scoped
+        self.all
       end
     end
 
@@ -28,7 +28,7 @@ module I18nline
       if locale.present?
         where("locale = ?", locale)
       else
-        scoped
+        self.all
       end
     end
 
@@ -36,7 +36,7 @@ module I18nline
       if to_search.present?
         where("key like ?", "%#{to_search}%")
       else
-        scoped
+        self.all
       end
     end
 
@@ -44,7 +44,7 @@ module I18nline
       if to_search.present?
         where("value like ?", "%#{to_search}%")
       else
-        scoped
+        self.all
       end
     end
 
