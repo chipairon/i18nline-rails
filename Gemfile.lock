@@ -40,7 +40,7 @@ GEM
     byebug (2.3.1)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
-    chipairon-i18n-active_record (0.0.2)
+    chipairon-i18n-active_record (0.0.3)
       i18n (>= 0.5.0)
     columnize (0.3.6)
     debugger-linecache (1.2.0)
