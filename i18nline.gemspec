@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["rubendiazjorge@gmail.com"]
   s.homepage    = "http://github.com/elpulgardelpanda/i18nline"
   s.summary     = "Translation management engine for Rails applications"
-  s.description = "Translation management engine for Rails applications"
+  s.description = "Integrates with I18n storing translations on database, marks missing translations inline and provides web administration for translations."
   s.license = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
