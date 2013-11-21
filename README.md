@@ -33,17 +33,23 @@ A basic implementation of this in you application controller could look like thi
   before_action :set_locale
 
   def set_locale
+    previous_locale = session[:locale] || I18n.locale.to_s
     I18n.locale = params[:locale] || session[:locale] || locale_from_browser || default_language
     if I18n.locale.to_s != session[:locale].to_s
       logger.debug "Locale changed from -#{session[:locale].to_s}- to -#{I18n.locale.to_s}-."
+      unless I18n.available_locales.include? I18n.locale.to_s
+        logger.debug "-#{I18n.locale.to_s}- is not included in available locales. Changing back to locale -#{previous_locale}-."
+        I18n.locale = previous_locale
+      end
     end
     session[:locale] = I18n.locale.to_s
   end
-  
+
   private
     def locale_from_browser
       request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
     end
+
 
 ```
 
