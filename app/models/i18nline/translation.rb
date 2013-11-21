@@ -34,7 +34,10 @@ module I18nline
 
     def self.search_key(to_search)
       if to_search.present?
-        where("key like ?", "%#{to_search}%")
+        # 'key' is a reserved word for Mysql, so we ask the adapter to scape it,
+        # since scaping is different for each database
+        scaped_key = connection.quote_column_name("key")
+        where("#{scaped_key} like ?", "%#{to_search}%")
       else
         self.all
       end
