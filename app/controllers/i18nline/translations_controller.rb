@@ -8,7 +8,7 @@ module I18nline
       tokens = params[:key].split(".")
       locale_at_inline_key = tokens.delete_at(0)
       key = tokens.join(".")
-      translations = Translation.where("key = ?", key)
+      translations = Translation.where(key: key)
       if translations.none?
         redirect_to :root, error: "Something went wrong. No translations found." and return
       end
