@@ -18,4 +18,10 @@ I18nline.setup do |config|
 
   # Missing translations will be generated for this locales.
   config.enabled_locales = %w(en es it pt)
+
+  # Complex translations use serialized yaml objects. If the translator changes
+  # the serialization markers, the translation can be made unusable.
+  # If 'show_yaml_warning' is set to true, a warning message will appear
+  # when accessing a translation set presenting serialized data.
+  config.show_yaml_warning = true
 end

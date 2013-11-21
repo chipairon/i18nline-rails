@@ -2,6 +2,10 @@
   background-color: #EED3D7;
 }
 
+#edit_key_set .panel-warning{
+  background-color: #FBEED5;
+}
+
 body {
   font-size: 14px !important;
 }

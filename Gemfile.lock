@@ -1,12 +1,11 @@
 PATH
   remote: .
   specs:
-    i18nline (0.0.6.alpha)
+    i18nline (0.0.8.alpha)
       chipairon-i18n-active_record
       jquery-rails
       kaminari (~> 0.14)
       rails (~> 4.0.0)
-      rails-i18n (~> 4.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -41,7 +40,7 @@ GEM
     byebug (2.3.1)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
-    chipairon-i18n-active_record (0.0.3)
+    chipairon-i18n-active_record (0.0.4)
       i18n (>= 0.5.0)
     columnize (0.3.6)
     debugger-linecache (1.2.0)
@@ -106,4 +105,5 @@ PLATFORMS
 DEPENDENCIES
   byebug
   i18nline!
+  rails-i18n (~> 4.0.0)
   sqlite3

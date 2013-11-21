@@ -18,6 +18,9 @@ module I18nline
   mattr_accessor :enabled_locales
   @@enabled_locales = %w(en es it)
 
+  mattr_accessor :show_yaml_warning
+  @@show_yaml_warning = true
+
   def self.setup
     yield self
   end

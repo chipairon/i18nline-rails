@@ -31,6 +31,8 @@ module I18nline
         is_proc: translations.first.is_proc
       )
 
+      @should_show_yaml_warning = check_yaml_warning(translations)
+
       render "edit_key" and return
     end
 
@@ -52,12 +54,12 @@ module I18nline
       params[:tr_set][:translation].each do |translation|
         db_translation = Translation.find(translation.first)
         if db_translation
-          db_translation.value = translation.last[:value]
+          db_translation.value = convert_to_object(translation.last[:value])
           db_translation.is_proc = is_proc
           if translation.last[:make_nil].presence == "1"
             # it is likely that if value was nil and now is not, 'make_nil' has been left marked
             # as a mistake, so in that case we ignore it and apply the new value:
-            unless db_translation.value_changed? and db_translation.value_was.nil?
+            unless db_translation.value_changed? && db_translation.value_was.nil? && db_translation.value.present?
               db_translation.value = nil
             end
           end
@@ -69,18 +71,6 @@ module I18nline
       redirect_to :translations, notice: "Update successful."
     end
 
-    # PATCH/PUT /translations/1
-    def update
-      if translation_params[:make_nil].presence == "1"
-        params[:translation][:value] = nil
-      end
-      if @translation.update(translation_params)
-        redirect_to @translation, notice: 'Translation was successfully updated.'
-      else
-        render action: 'edit'
-      end
-    end
-
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_translation
@@ -90,6 +80,30 @@ module I18nline
       # Only allow a trusted parameter "white list" through.
       def translation_params
         params.require(:translation).permit(:value, :is_proc, :make_nil)
+      end
+
+      def convert_to_object(value)
+        # gsub part is keeping integrity of serialized objects, such as arrays:
+        result = value.gsub("\r\n", "\n")
+        if value.start_with?("---")
+          begin
+            result = YAML::load(value)
+          rescue Exception => exception
+            logger.debug "I18nline: Exception found trying to  parse yaml to convert translation value to object:"
+            logger.debug exception
+          end
+        end
+        result
+      end
+
+      def check_yaml_warning(translations)
+        should_show = false
+        if I18nline.show_yaml_warning
+          if translations.select{|tt| tt.value and tt.value.class != String}.any?
+            should_show = true
+          end
+        end
+        should_show
       end
   end
 end

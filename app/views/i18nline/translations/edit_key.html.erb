@@ -22,6 +22,14 @@
           </div>
         </div>
       </div>
+      <% if @should_show_yaml_warning %>
+        <div class="panel panel-default panel-warning">
+          <div class="panel-body">
+            Please, <b>note:</b> <br>
+            At least one translation below is using <a href="http://en.wikipedia.org/wiki/Yaml">Yaml</a>. If you are not familiar with Yaml and serialization, please don't touch the dashes at the beginning of some lines.
+          </div>
+        </div>
+      <% end %>
       <% @tr_set.translations.each do |translation| %>
         <% panel_color = translation.value.nil? ? "panel-danger" : "panel-info" %>
         <div class="panel panel-default <%= panel_color %>">
@@ -29,8 +37,10 @@
             <%= f.fields_for "translation[]", translation do |tl_form| %>
               <div class="input-group col-sm-offset-2">
                 <span class="input-group-addon"><%= translation.locale %></span>
-                <% rows = (translation.value.to_s.length / 100) + 1 %>
-                <%= tl_form.text_area :value, class: "form-control", rows: "#{rows}" %>
+                <% translation.value = translation.value.to_yaml if translation.value && translation.value.class != String %>
+                <% rows = (translation.value.to_s.length / 120) + 1 %>
+                <% height = rows * 36 %>
+                <%= tl_form.text_area :value, class: "form-control", style: "height:#{height}px !important;" %>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
