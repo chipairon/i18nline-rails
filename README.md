@@ -78,6 +78,9 @@ Cache abilitation already done by i18n, but show how to set it here.
         $ rake db:setup
         $ rake db:migrate
         $ rake
+        $ cd test/dummy
+        $ rails server
+        
 * Make your changes.
 * Add tests to /i18nline_root/spec/*
 * Add tests to /i18nline_root/test/dummy/spec/* to make a point for your changes when we review the pull request.
