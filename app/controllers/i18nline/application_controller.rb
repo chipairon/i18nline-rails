@@ -1,6 +1,6 @@
 module I18nline
   class ApplicationController < ActionController::Base
-    before_action :check_authenticated_user
+    before_filter :check_authenticated_user
 
     private
 

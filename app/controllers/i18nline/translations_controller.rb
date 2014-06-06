@@ -2,7 +2,7 @@ require_dependency "i18nline/application_controller"
 
 module I18nline
   class TranslationsController < ApplicationController
-    before_action :set_translation, only: [:show, :edit, :update, :destroy]
+    before_filter :set_translation, only: [:show, :edit, :update, :destroy]
 
     def find_by_key
       tokens = params[:key].split(".")
