@@ -1,8 +1,15 @@
+GIT
+  remote: git://github.com/elpulgardelpanda/i18n-active_record.git
+  revision: 0769929de01d4c73b8f15bc478812fcdfc5039e5
+  tag: v.0.1.1
+  specs:
+    i18n-active_record (0.0.2)
+      i18n (>= 0.5.0)
+
 PATH
   remote: .
   specs:
-    i18nline (0.0.8.alpha)
-      chipairon-i18n-active_record
+    i18nline (0.0.15.alpha)
       jquery-rails
       kaminari (~> 0.14)
       rails (~> 4.0.0)
@@ -40,17 +47,15 @@ GEM
     byebug (2.3.1)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
-    chipairon-i18n-active_record (0.0.4)
-      i18n (>= 0.5.0)
     columnize (0.3.6)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.6.5)
-    jquery-rails (3.0.4)
+    jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    kaminari (0.14.1)
+    kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     mail (2.5.4)
@@ -104,6 +109,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  i18n-active_record!
   i18nline!
   rails-i18n (~> 4.0.0)
   sqlite3
