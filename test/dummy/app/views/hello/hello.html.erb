@@ -11,3 +11,19 @@
 <p>This is not translated <%=t("not.translated.key.with.dots")%></p>
 
 <p>Time now is <%= l(Time.now, format: :long) %></p>
+
+<h1> Problematic elements and alternatives </h1>
+<div class="issue-item">
+  <div class="issue">
+    Translating text on a button (input type=button):
+    <br>
+    <input type="button" value="<%= t("button.text") %>">
+  </div>
+  <div class="alternative">
+    <span>Alternative: </span>
+    Translating text on a button (button element) should work:
+    <br>
+    <button><%= t("button.text") %></button>
+  </div>
+</div>
+
