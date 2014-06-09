@@ -10,4 +10,4 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-  gem 'i18n-active_record', github: 'elpulgardelpanda/i18n-active_record', tag: 'v.0.1.1'
+  gem 'i18n-active_record', github: 'elpulgardelpanda/i18n-active_record', tag: 'v.0.1.2'
