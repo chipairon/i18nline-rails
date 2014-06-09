@@ -12,6 +12,19 @@ module I18nline
         end
         false
       end
+
+      # Replace the translation key with a 'span'. The class tells if it is missing or not,
+      # and the title contains the key
+      def ti(*args)
+        translation = ActionController::Base.helpers.translate(*args)
+        result = nil
+        if translation.to_s.include?("translation_missing")
+          result = translation.gsub("translation missing: ", "")
+        else
+          result = content_tag(:span, translation, class: 'translation_found', title: "#{I18n.locale}.#{args.first}")
+        end
+        result.html_safe
+      end
     end
 
     def i18nline_assets_inclusion_tag
