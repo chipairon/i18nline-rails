@@ -40,7 +40,7 @@
                 <% translation.value = translation.value.to_yaml if translation.value && translation.value.class != String %>
                 <% rows = (translation.value.to_s.length / 120) + 1 %>
                 <% height = rows * 36 %>
-                <%= tl_form.text_area :value, class: "form-control", style: "height:#{height}px !important;" %>
+                <%= tl_form.text_area :value, value: translation.value.to_s, class: "form-control", style: "height:#{height}px !important;" %>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">

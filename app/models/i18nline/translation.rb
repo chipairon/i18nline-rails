@@ -9,9 +9,9 @@ module I18nline
 
     def self.not_translated(apply_this = "1")
       if apply_this.present?
-        where("value is null")
+        where("(value is null or value = '--- \n...\n')")
       else
-        self.all
+        self.scoped
       end
     end
 
@@ -20,7 +20,7 @@ module I18nline
         #value is serialized so searching for empty is complicated:
         where("value like ?", "".to_yaml)
       else
-        self.all
+        self.scoped
       end
     end
 
@@ -28,7 +28,7 @@ module I18nline
       if locale.present?
         where("locale = ?", locale)
       else
-        self.all
+        self.scoped
       end
     end
 
@@ -39,7 +39,7 @@ module I18nline
         scaped_key = connection.quote_column_name("key")
         where("#{scaped_key} like ?", "%#{to_search}%")
       else
-        self.all
+        self.scoped
       end
     end
 
@@ -47,7 +47,7 @@ module I18nline
       if to_search.present?
         where("value like ?", "%#{to_search}%")
       else
-        self.all
+        self.scoped
       end
     end
 
