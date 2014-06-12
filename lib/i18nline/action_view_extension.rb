@@ -4,12 +4,12 @@ module I18nline
 
     included do
       def current_user_can_translate?
-        I18nline.current_user ||= send I18nline.current_user_method
-        if I18nline.current_user
-          if I18nline.current_user.try I18nline.can_translate_method
-            return true
-          end
+        current_user = send I18nline.current_user_method
+
+        if current_user and current_user.try(I18nline.can_translate_method)
+          return true
         end
+
         false
       end
 
@@ -17,13 +17,19 @@ module I18nline
       # and the title contains the key
       def ti(*args)
         translation = ActionController::Base.helpers.translate(*args)
-        result = nil
-        if translation.to_s.include?("translation_missing")
-          result = translation.gsub("translation missing: ", "")
+
+        if current_user_can_translate?
+          result = nil
+          if translation.to_s.include?("translation_missing")
+            result = translation.gsub("translation missing: ", "")
+          else
+            result = content_tag(:span, translation, class: 'translation_found', title: "#{I18n.locale}.#{args.first}")
+          end
+
+          return result.html_safe
         else
-          result = content_tag(:span, translation, class: 'translation_found', title: "#{I18n.locale}.#{args.first}")
+          return sanitize_translation_missing(translation)
         end
-        result.html_safe
       end
     end
 
@@ -48,5 +54,12 @@ module I18nline
         stylesheet_link_tag("i18nline_to_host.css")
       end
 
+      def sanitize_translation_missing(translation)
+        translation_missing_match = translation.match(/<span class="translation_missing".*>(.*)<\/span>/)
+
+        return translation_missing_match[1] if translation_missing_match
+
+        translation
+      end
   end
 end
