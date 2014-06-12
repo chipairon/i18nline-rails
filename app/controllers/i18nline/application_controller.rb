@@ -11,7 +11,7 @@ module I18nline
       end
 
       def get_current_user
-        I18nline.current_user ||= send I18nline.current_user_method
+        send I18nline.current_user_method
       end
 
   end
