@@ -24,9 +24,4 @@ module I18nline
   def self.setup
     yield self
   end
-
-  private
-  mattr_accessor :current_user
-  @@current_user ||= nil
-
 end
