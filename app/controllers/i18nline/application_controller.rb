@@ -1,5 +1,5 @@
 module I18nline
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
     before_action :check_authenticated_user
 
     private
