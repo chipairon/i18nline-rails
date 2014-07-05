@@ -5,7 +5,7 @@ module I18nline
     serialize :value
     serialize :interpolations, Array
 
-    default_scope { order("created_at desc") }
+    default_scope { self.scoped.order("created_at desc") }
 
     def self.not_translated(apply_this = "1")
       if apply_this.present?

@@ -1,8 +1,18 @@
-<%= ti("thanks", name: "Jeremy") %>
+<p>
+  <%= ti("interpolate.from.yml", fruit: "Orange") %>
+</p>
 
-<%= ti("interpolate.from.yml", fruit: "Orange") %>
+<p>
+  <%= ti("thanks", name: "Jeremy") %>
+</p>
 
-<%= ti("this.yaml.tell_me") %>
+<p>
+  <%= ti("default.with.interpolation", default: "%{fruit1} tastes better than %{fruit2}", fruit1: "Orange", fruit2: "Apple") %>
+</p>
+
+<p>
+  <%= ti("this.yaml.tell_me") %>
+</p>
 
 <h1> <%= ti("hello") %> </h1>
 
@@ -27,3 +37,5 @@
   </div>
 </div>
 
+<h1> Translation with fallback: </h1>
+<button><%= ti("button.submit", default: [:'application.buttons.submit', "Submit this!"]) %></button>
