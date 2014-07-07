@@ -39,3 +39,11 @@
 
 <h1> Translation with fallback: </h1>
 <button><%= ti("button.submit", default: [:'application.buttons.submit', "Submit this!"]) %></button>
+
+<br>
+<br>
+
+<p>
+  <%= ti 'application.test_html', default: "You can also use <strong>html</strong> inside translations." %>
+</p>
+
