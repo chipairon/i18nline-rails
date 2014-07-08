@@ -14,6 +14,10 @@
   <%= ti("this.yaml.tell_me") %>
 </p>
 
+<p>
+<%= ti("key_with_html", default: "Html <strong>CAN</strong> <u>be</u> <span style='color:blue'>applied</span>. Just end the key with '_html'") %>
+</p>
+
 <h1> <%= ti("hello") %> </h1>
 
 <p>This should be <%= ti("translated") %></p>
