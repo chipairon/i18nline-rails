@@ -17,10 +17,13 @@ module I18nline
       # and the title contains the key
       def ti(*args)
         translation = I18n.t(*args)
-
         translation_missing = translation.include?("translation missing:")
         if translation_missing
           translation = args[0].split(".").last.to_s.titleize
+        end
+        key = args[0]
+        if key.end_with? "_html"
+          translation = translation.html_safe
         end
         if current_user_can_translate?
           if translation_missing
