@@ -1,3 +1,6 @@
+<p><%= ti("some_pluralization", count: 0, default: "You have some mails") %></p>
+<p><%= ti("some_pluralization", count: 1, default: "You have some mails") %></p>
+<p><%= ti("some_pluralization", count: 900, default: "You have some mails") %></p>
 <p>
   <%= ti("interpolate.from.yml", fruit: "Orange") %>
 </p>
@@ -24,8 +27,6 @@
 
 <p>This is not translated <%= ti ("not.translated.key.with.dots") %></p>
 
-<p>Time now is <%= l(Time.now, format: :long) %></p>
-
 <h1> Problematic elements and alternatives </h1>
 <div class="issue-item">
   <div class="issue">
@@ -41,5 +42,3 @@
   </div>
 </div>
 
-<h1> Translation with fallback: </h1>
-<button><%= ti("button.submit", default: [:'application.buttons.submit', "Submit this!"]) %></button>

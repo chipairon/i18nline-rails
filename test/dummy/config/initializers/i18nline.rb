@@ -24,4 +24,7 @@ I18nline.setup do |config|
   # If 'show_yaml_warning' is set to true, a warning message will appear
   # when accessing a translation set presenting serialized data.
   config.show_yaml_warning = true
+
+  config.redis_options = { db: 9 }
 end
+

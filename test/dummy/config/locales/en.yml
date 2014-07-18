@@ -20,10 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: Hello world
   this:
     yaml:
-      tell_me: "I am telling you!"
+      tell_me: I am telling you!
   interpolate:
     from:
-      yml: "Mi favorite fruit is %{fruit}."
+      yml: Mi favorite fruit is %{fruit}.
+  pluralization_text:
+        one: less than a second.
+        other: at least %{count} seconds.

@@ -8,20 +8,20 @@
       <th>Locale</th>
       <th>Key</th>
       <th>Value</th>
-      <th>Modified at</th>
       <th>Action</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @translations.each do |translation| %>
-      <% tr_color = translation.value.nil? ? "danger" : "" %>
+    <% @translations.each do |key| %>
+      <% value = I18nline::TR_STORE[key] %>
+      <% value = ActiveSupport::JSON.decode(value) if value %>
+      <% tr_color = value.nil? ? "danger" : "" %>
       <tr class="<%= tr_color %>">
-        <td><%= translation.locale %></td>
-        <td><%= translation.key %></td>
-        <td><%= translation.value.to_s.truncate(50) %></td>
-        <td class="date"><%= translation.updated_at.strftime("%T, %d %b %Y") %></td>
-        <td><%= link_to 'Edit', find_by_key_path(key: "#{translation.locale}.#{translation.key}") %></td>
+        <td><%= key.split(".").first %></td>
+        <td><%= key %></td>
+        <td><%= value.to_s.truncate(50) %></td>
+        <td><%= link_to 'Edit', find_by_key_path(key: key) %></td>
       </tr>
     <% end %>
   </tbody>
