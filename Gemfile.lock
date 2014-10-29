@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/elpulgardelpanda/i18n-active_record.git
-  revision: dbac6a0ff94646ba109a25fcec6a1053aefbae67
-  tag: v.0.1.4
+  revision: 5d6b3370f9aa2fd8184205b016536cc97dae2cd6
+  tag: v.0.1.5
   specs:
-    i18n-active_record (0.0.2)
+    i18n-active_record (0.1.5)
       i18n (>= 0.5.0)
 
 GIT
@@ -16,7 +16,7 @@ GIT
 PATH
   remote: .
   specs:
-    i18nline (0.0.15.alpha)
+    i18nline (0.0.22.alpha)
       jquery-rails
       kaminari (~> 0.14)
       rails (~> 3.2)

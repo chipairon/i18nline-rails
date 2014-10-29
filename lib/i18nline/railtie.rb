@@ -7,5 +7,9 @@ module I18nline
         ::ActionView::Base.send :include, I18nline::ActionViewExtension
       end
     end
+
+    rake_tasks do
+      load "tasks/i18nline_tasks.rake"
+    end
   end
 end

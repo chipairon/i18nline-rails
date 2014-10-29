@@ -10,6 +10,7 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-  gem 'i18n-active_record', github: 'elpulgardelpanda/i18n-active_record', tag: 'v.0.1.4'
+gem 'i18n-active_record', github: 'elpulgardelpanda/i18n-active_record', tag: 'v.0.1.5'
+#gem 'i18n-active_record', path: "~/projects/epdp-i18n-active_record"
 
-  gem 'i18n', git: 'git@github.com:elpulgardelpanda/i18n.git', branch: 'dont-store-tr-for-locales-not-set-as-available'
+gem 'i18n', git: 'git@github.com:elpulgardelpanda/i18n.git', branch: 'dont-store-tr-for-locales-not-set-as-available'
