@@ -10,7 +10,8 @@ module I18nline
       key = tokens.join(".")
       translations = Translation.where(key: key)
       if translations.none?
-        redirect_to :root, error: "Something went wrong. No translations found." and return
+        flash[:error] = "Unable to find key directly. Please try to search it on this page."
+        redirect_to translations_path(search_key: key) and return
       end
 
       # This is needed to preserve nil values
